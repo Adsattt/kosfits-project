@@ -8,7 +8,6 @@
     $koneksi = mysqli_connect($server,$user,$password,$database) or die(mysqli_error($koneksi));
 ?>
 <?php 
-
     function daftar($data){
         global $koneksi;
 
@@ -32,4 +31,16 @@
 
         return mysqli_affected_rows($koneksi);
     }
+
+    $errh = $errw = $errg = "";
+    $height = $weight = "";
+    $bmipass = "";
+
+    function validate($data){
+        $data = trim($data);
+        $data = stripslashes($data);
+        $data = htmlspecialchars($data);
+        return $data;
+    }
+    
 ?>
