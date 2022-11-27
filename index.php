@@ -1,4 +1,11 @@
 <?php
+session_start();
+
+if(!isset($_SESSION["login"])){
+    header("Location: login.php");
+    exit;
+}
+
 require 'function.php';
 
 if (isset($_POST["submit"])) {
@@ -20,7 +27,7 @@ if (isset($_POST["submit"])) {
     if (empty($_POST['height'] && $_POST['weight'])) {
         echo "";
     } else {
-        $bmi = ($weight / ($height * $height));
+        $bmi = ($weight * 10000/ ($height * $height));
         $bmipass = $bmi;
     }
 }
@@ -38,16 +45,18 @@ if (isset($_POST["submit"])) {
 </head>
 
     <body>
+        <a href="logout.php">Logout</a>
+        <a href="inputjadwal.php">Jadwal kamu</a>
         <h3><b>B</b>ody <b>M</b>ass <b>I</b>ndex Calculator</h3>
         <form class="form" action="" id="form" method="POST">
             <div class="row-one">
                 <input type="text" class="text-input" id="age" autocomplete="off" required/><p class="text">Age</p>
                 <label class="container">
-                    <input type="radio" name="radio" id="f"><p class="text">Female</p>
+                    <input type="radio" name="female" id="f"><p class="text">Female</p>
                     <span class="checkmark"></span>
                 </label>
                 <label class="container">
-                    <input type="radio" name="radio" id="m"><p class="text">Male</p>
+                    <input type="radio" name="male" id="m"><p class="text">Male</p>
                     <span class="checkmark"></span>
                 </label>
             </div>
@@ -63,23 +72,17 @@ if (isset($_POST["submit"])) {
                 echo "<span class='pass'>Your BMI is : ".number_format($bmipass , 2) ."</span>";
                 if (isset($_POST['submit'])){
                     if ($bmipass >= 13.6 && $bmipass <= 18.5) {
-                        echo "<span style='color:#00203FFF; display:block; margin-top:5px ;margin-right:50px'> Low body weight. You need to gain weight by eating moderately.</span>";?>
-                        <img src="assets/Untitled-2 copy.png" class="one"><?php
+                        echo "<span style='color:#00203FFF; display:block; margin-top:5px ;margin-right:50px'> Low body weight. You need to gain weight by eating moderately.</span>";
                     } elseif ($bmipass > 18.5 && $bmipass < 24.9) {
-                        echo "<span style='color:#00203FFF; display:block; margin-top:5px;margin-right:50px'> The standard of good health.</span>";?>
-                        <img src="assets/Untitled-1 copy.png" class="two"><?php
+                        echo "<span style='color:#00203FFF; display:block; margin-top:5px;margin-right:50px'> The standard of good health.</span>";
                     } elseif ($bmipass > 25 && $bmipass < 29.9) {
-                        echo "<span style='color:#00203FFF; display:block; margin-top:5px;margin-right:50px'> Excess body weight. Exercise needs to reduce excess weight.</span>";?>
-                        <img src="assets/Untitled-3 copy.png" class="three"><?php
+                        echo "<span style='color:#00203FFF; display:block; margin-top:5px;margin-right:50px'> Excess body weight. Exercise needs to reduce excess weight.</span>";
                     } elseif ($bmipass > 30 && $bmipass < 34.9) {
-                        echo "<span style='color:#00203FFF; display:block; margin-top:5px;margin-right:50px'> The first stage of obesity. It is necessary to choose food and exercise.</span>";?>
-                        <img src="assets/Untitled-4 copy.png" class="four"><?php
+                        echo "<span style='color:#00203FFF; display:block; margin-top:5px;margin-right:50px'> The first stage of obesity. It is necessary to choose food and exercise.</span>";
                     } elseif ($bmipass > 35 && $bmipass < 39.9) {
-                        echo "<span style='color:#00203FFF; display:block; margin-top:5px;margin-right:50px'> The second stage of obesity. Moderate diet and exercise are required.</span>";?>
-                        <img src="assets/Untitled-5 copy.png" class="five"><?php
+                        echo "<span style='color:#00203FFF; display:block; margin-top:5px;margin-right:50px'> The second stage of obesity. Moderate diet and exercise are required.</span>";
                     } elseif ($bmipass >= 40) {
-                        echo "<span style='color:#00203FFF; display:block; margin-top:5px;margin-right:50px'> Excess fat.<b style='color:#ed4337'> Fear of death</b>. Need a doctor advice.</span>";?>
-                        <img src="assets/Untitled-6 copy.png" class="six"><?php
+                        echo "<span style='color:#00203FFF; display:block; margin-top:5px;margin-right:50px'> Excess fat.<b style='color:#ed4337'> Fear of death</b>. Need a doctor advice.</span>";
                     }
                 } else {
                     echo "";
