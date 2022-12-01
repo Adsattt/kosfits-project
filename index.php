@@ -13,58 +13,105 @@ if (isset($_POST["submit"])) {
     global $koneksi;
 
     $age = $_POST["age"];
-    $gender = $_POST["gender"];
+
     $height = $_POST["height"];
     $weight = $_POST["weight"];
 
     $bmi = ($weight * 10000 / ($height * $height));
     $bmipass = $bmi;
 
-    $query = mysqli_query($koneksi, "INSERT INTO data_bmi VALUE ('$id', '$age', '$gender', '$height', '$weight', '$bmipass')");
+    $query = mysqli_query($koneksi, "INSERT INTO data_bmi VALUE ('$id', '$age', ' ', '$height', '$weight', '$bmipass')");
 }
 ?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css?family=Quicksand:400,700" rel="stylesheet">
-    <link href="style.css" rel="stylesheet">
-    <!-- <script type="text/javascript" src="bmi.js"></script> -->
-    <title>BMI PAGE</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Home - Brand</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic&amp;display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cabin:700&amp;display=swap">
+    <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
+    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/fonts/fontawesome5-overrides.min.css">
+    <link rel="stylesheet" href="assets/css/untitled.css">
 </head>
 
-<body>
-    <a href="logout.php">Logout</a>
-    <a href="inputjadwal.php">Jadwal kamu</a>
-    <h3><b>B</b>ody <b>M</b>ass <b>I</b>ndex Calculator</h3>
-    <form class="form" action="" id="form" method="POST">
-        <div class="row-one">
-            <input type="text" class="text-input" name="age" id="age" autocomplete="off" required />
-            <p class="text">Age</p>
-            <label class="container">
-                <input type="radio" name="gender" value="Female" id="f">
-                <p class="text">Female</p>
-                <span class="checkmark"></span>
-            </label>
-            <label class="container">
-                <input type="radio" name="gender" value="Male" id="m">
-                <p class="text">Male</p>
-                <span class="checkmark"></span>
-            </label>
+<body id="page-top" data-bs-spy="scroll" data-bs-target="#mainNav" data-bs-offset="77">
+    <nav class="navbar navbar-light navbar-expand-md fixed-top" id="mainNav" style="background: rgba(255,255,255,0.33);">
+        <div class="container"><a class="navbar-brand" href="#">kosfits</a><button data-bs-toggle="collapse" class="navbar-toggler navbar-toggler-right" data-bs-target="#navbarResponsive" type="button" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation" value="Menu"><i class="fa fa-bars"></i></button>
+            <div class="collapse navbar-collapse" id="navbarResponsive" style="padding-right: 0px;">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item nav-link"><a class="nav-link active" href="#about" style="background: rgba(255,255,255,0.3);">REGISTER</a></li>
+                    <li class="nav-item nav-link"><a class="nav-link" href="#download">LOGIN</a></li>
+                    <li class="nav-item nav-link"><i class="far fa-user" style="font-size: 37px;padding-bottom: 0px;margin-top: 0px;margin-right: 6px;"></i></li>
+                </ul>
+            </div>
         </div>
-
-        <div class="row-two">
-            <input type="text" class="text-input" id="height" name="height" autocomplete="off" required>
-            <p class="text">Height (cm)</p>
-            <input type="text" class="text-input" id="weight" name="weight" autocomplete="off" required>
-            <p class="text">Weight (kg)</p>
+    </nav>
+    <header class="masthead" style="background-image:url('assets/img/intro-bg.jpg');">
+        <div class="intro-body">
+            <header>
+                <p>BODY MASS INDEX CALCULATOR</p>
+            </header>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <form class="form" action="" id="form" method="POST">
+                            <div class="row">
+                                <div class="col"><label class="col-form-label">age<input class="form-control" type="number" name="age" id="age" autocomplete="off" required style="border-radius: 30px;filter: brightness(70%) contrast(100%);border-style: solid;color: rgb(0,0,0);padding-left: 10px;text-align: center;"></label></div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="form-check" style="margin-left: 130px;"><input class="form-check-input" type="radio" id="formCheck-1"><label class="form-check-label" for="formCheck-1">MALE</label></div>
+                                </div>
+                                <div class="col">
+                                    <div class="form-check"><input class="form-check-input" type="radio" id="formCheck-2"><label class="form-check-label" for="formCheck-2" style="margin-left: -2px;margin-right: 135px;">FEMALE</label></div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col"><label class="col-form-label">weight<input class="form-control" type="number" id="weight" name="weight" autocomplete="off" required style="border-radius: 30px;filter: brightness(70%) contrast(100%);border-style: solid;color: rgb(0,0,0);padding-left: 10px;text-align: center;"></label></div>
+                            </div>
+                            <div class="row">
+                                <div class="col"><label class="col-form-label">height<input class="form-control" type="number" id="height" name="height" autocomplete="off" required style="border-radius: 30px;filter: brightness(70%) contrast(100%);border-style: solid;color: rgb(0,0,0);padding-left: 10px;text-align: center;"></label></div>
+                            </div>
+                            <div style="margin-top: 10px;"><button class="btn btn-primary" type="submit" name="submit" id="submit" style="background: #dbdedd;border-color: rgba(0,0,0,0);border-radius: 30px;">submit</button></div> 
+                        </form>
+                    </div>
+                    <div class="col-md-6">
+                        <p style="font-size: 30PX;">Your BMI&nbsp; is 0.00</p>
+                        <?php
+                        error_reporting(0);
+                        echo "<span class='pass'>Your BMI is : " . number_format($bmipass, 2) . "</span>";
+                        if (isset($_POST['submit'])) {
+                            if ($bmipass >= 13.6 && $bmipass <= 18.5) {
+                                echo "<span style='color:#00203FFF; display:block; margin-top:5px ;margin-right:50px'> Low body weight. You need to gain weight by eating moderately.</span>";
+                            } elseif ($bmipass > 18.5 && $bmipass < 24.9) {
+                                echo "<span style='color:#00203FFF; display:block; margin-top:5px;margin-right:50px'> The standard of good health.</span>";
+                            } elseif ($bmipass > 25 && $bmipass < 29.9) {
+                                echo "<span style='color:#00203FFF; display:block; margin-top:5px;margin-right:50px'> Excess body weight. Exercise needs to reduce excess weight.</span>";
+                            } elseif ($bmipass > 30 && $bmipass < 34.9) {
+                                echo "<span style='color:#00203FFF; display:block; margin-top:5px;margin-right:50px'> The first stage of obesity. It is necessary to choose food and exercise.</span>";
+                            } elseif ($bmipass > 35 && $bmipass < 39.9) {
+                                echo "<span style='color:#00203FFF; display:block; margin-top:5px;margin-right:50px'> The second stage of obesity. Moderate diet and exercise are required.</span>";
+                            } elseif ($bmipass >= 40) {
+                                echo "<span style='color:#00203FFF; display:block; margin-top:5px;margin-right:50px'> Excess fat.<b style='color:#ed4337'> Fear of death</b>. Need a doctor advice.</span>";
+                            }
+                        } else {
+                            echo "";
+                        }
+                        ?>
+                    </div>
+                </div>
+            </div>
         </div>
-        <button type="submit" id="submit" name="submit">Submit</button>
-    </form>
-    <?php
+    </header>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/grayscale.js"></script>
+</body>
+<?php
     error_reporting(0);
     echo "<span class='pass'>Your BMI is : " . number_format($bmipass, 2) . "</span>";
     if (isset($_POST['submit'])) {
@@ -85,6 +132,4 @@ if (isset($_POST["submit"])) {
         echo "";
     }
     ?>
-</body>
-
 </html>
