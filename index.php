@@ -13,7 +13,6 @@ if (isset($_POST["submit"])) {
     global $koneksi;
 
     $age = $_POST["age"];
-
     $height = $_POST["height"];
     $weight = $_POST["weight"];
 
@@ -62,14 +61,6 @@ if (isset($_POST["submit"])) {
                         <form class="form" action="" id="form" method="POST">
                             <div class="row">
                                 <div class="col"><label class="col-form-label">age<input class="form-control" type="number" name="age" id="age" autocomplete="off" required style="border-radius: 30px;filter: brightness(70%) contrast(100%);border-style: solid;color: rgb(0,0,0);padding-left: 10px;text-align: center;"></label></div>
-                            </div>
-                            <div class="row">
-                                <div class="col">
-                                    <div class="form-check" style="margin-left: 130px;"><input class="form-check-input" type="radio" id="formCheck-1"><label class="form-check-label" for="formCheck-1">MALE</label></div>
-                                </div>
-                                <div class="col">
-                                    <div class="form-check"><input class="form-check-input" type="radio" id="formCheck-2"><label class="form-check-label" for="formCheck-2" style="margin-left: -2px;margin-right: 135px;">FEMALE</label></div>
-                                </div>
                             </div>
                             <div class="row">
                                 <div class="col"><label class="col-form-label">weight<input class="form-control" type="number" id="weight" name="weight" autocomplete="off" required style="border-radius: 30px;filter: brightness(70%) contrast(100%);border-style: solid;color: rgb(0,0,0);padding-left: 10px;text-align: center;"></label></div>
