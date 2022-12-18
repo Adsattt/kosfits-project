@@ -1,13 +1,13 @@
 <?php
-//  fungsi buat connect ke data base
 require 'function.php';
 
-if(isset($_POST["btnDaftar"])){
-    if(daftar($_POST) > 0){
+if (isset($_POST["btnDaftar"])) {
+    if (daftar($_POST) > 0) {
         echo "<script>
                 alert('user baru berhasil ditambahkan!')
+                location.replace('login.php')
               </script>";
-    } else{
+    } else {
         echo mysqli_error($koneksi);
     }
 }
@@ -17,70 +17,60 @@ if(isset($_POST["btnDaftar"])){
 <html lang="en">
 
 <head>
+    <!-- Required meta tags -->
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Home - Brand</title>
-    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic&amp;display=swap">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cabin:700&amp;display=swap">
-    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIGN-UP PAGE</title>
 </head>
 
-<body id="page-top" data-bs-spy="scroll" data-bs-target="#mainNav" data-bs-offset="77">
-    <nav class="navbar navbar-light navbar-expand-md fixed-top" id="mainNav">
-        <div class="container"><a class="navbar-brand" href="#">BMI CALCULATOR</a><button data-bs-toggle="collapse" class="navbar-toggler navbar-toggler-right" data-bs-target="#navbarResponsive" type="button" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation" value="Menu"><i class="fa fa-bars"></i></button>
-            <div class="collapse navbar-collapse" id="navbarResponsive">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item nav-link"></li>
-                    <li class="nav-item nav-link"></li>
-                    <li class="nav-item nav-link"></li>
-                </ul>
+<body>
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        SIGN-UP PAGE
+                    </div>
+                    <form action="" method="POST">
+                        <div class="card-body">
+                            <label for="name" class="form-label">Name</label>
+                            <div class="input-group mb-3">
+                                <span class="input-group-text" id="basic-addon3"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                                        <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
+                                        <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z" />
+                                    </svg></span>
+                                <input type="text" class="form-control" id="name" name="name" required placeholder="Input your name" aria-describedby="basic-addon3">
+                            </div>
+                            <label for="username" class="form-label">Username</label>
+                            <div class="input-group mb-3">
+                                <span class="input-group-text" id="basic-addon3"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
+                                        <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" />
+                                    </svg></span>
+                                <input type="text" class="form-control" id="username" name="username" required placeholder="Input your username" aria-describedby="basic-addon3">
+                            </div>
+                            <label for="password" class="form-label">Password</label>
+                            <div class="input-group mb-3">
+                                <span class="input-group-text" id="basic-addon3"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-lock-fill" viewBox="0 0 16 16">
+                                        <path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2zm3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z" />
+                                    </svg></span>
+                                <input type="password" class="form-control" id="password" name="password" required placeholder="Input your password" aria-describedby="basic-addon3">
+                            </div>
+                            <div class="row mb-3">
+                                <button type="submit" class="btn btn-primary" name="btnDaftar">Daftar</button>
+                            </div>
+
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
-    </nav>
-    <header class="text-center masthead" style="background-image:url('assets/img/intro-bg.jpg');">
-        <div class="text-center intro-body">
-            <header>
-                <p style="margin-bottom: 25px;font-size: 30px;text-decoration: underline;">REGISTER</p>
-            </header>
-            <form class="text-center" action="" method="POST">
-                <div class="row">
-                    <div class="col">
-                        <label class="col-form-label" style="margin-bottom: 2px;">
-                        NAME
-                        <input type="text" class="form-control" id="name" name="name" required placeholder="Input your name" style="border-radius: 30px;filter: contrast(NaN%);text-align: center;background: rgba(140,140,140,0.7);border-style: none;border-color: var(--bs-red);"></label></div>
-                </div>
-                
-                <div class="row">
-                    <div class="col">
-                        <label class="col-form-label" style="padding-right: 0px;margin-right: 0px;padding-bottom: 0px;margin-bottom: 2px;">
-                        USERNAME
-                        <input type="text" class="form-control" id="username" name="username" required placeholder="Input your username" style="border-radius: 30px;filter: contrast(NaN%);text-align: center;background: rgba(140,140,140,0.7);border-style: none;border-color: var(--bs-red);"></label></div>
-                </div>
-
-                <div class="row">
-                    <div class="col">
-                        <label class="col-form-label" style="padding-right: 0px;margin-right: 0px;padding-bottom: 0px;margin-bottom: 2px;">
-                        PASSWORD
-                        <input type="password" class="form-control" id="password" name="password" required placeholder="Input your password" style="border-radius: 30px;filter: contrast(101%);text-align: center;background: #838585;border-style: solid;border-color: rgba(33,37,41,0);"></label></div>
-                </div>
-                
-                <div>
-                    
-                    <button onclick="index.php" type="submit" class="btn btn-primary" name="btnDaftar" style="background: #dbdedd;border-color: rgba(0,0,0,0);border-radius: 30px;">
-                    submit
-                    </button>
-                    
-                    <button onclick="history.back()" type="button" class="btn btn-primary" name="btnDaftar" style="background: #dbdedd;border-color: rgba(0,0,0,0);border-radius: 30px;">
-                    back
-                    </button>
-                </div>
-                
-            </form>
-        </div>
-    </header>
-    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-    <script src="assets/js/grayscale.js"></script>
+    </div>
 </body>
 
 </html>
