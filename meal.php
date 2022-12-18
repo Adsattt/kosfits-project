@@ -63,28 +63,22 @@ if (!isset($_SESSION["login"])) {
             </thead>
             <tbody>
                 <?php
-
                 $servername = "localhost";
                 $username = "root";
                 $password = "";
                 $database = "kosfits";
-
                 //membuat connection
                 $connection = new mysqli($servername, $username, $password, $database);
-
                 //check connection
                 if ($connection->connect_error) {
                     die("Connection failed" . $connection->connect_error);
                 }
-
                 //read all row froom database table
                 $sql = "SELECT * FROM weeklymeal";
                 $result = $connection->query($sql);
-
                 if (!$result) {
                     die("Invalid query: " . $connection->error);
                 }
-
                 //read data of each row
                 while ($row = $result->fetch_assoc()) {
                     echo "
@@ -100,10 +94,7 @@ if (!isset($_SESSION["login"])) {
                     </tr>
                         ";
                 }
-
-
                 ?>
-
             </tbody>
 
         </table>
