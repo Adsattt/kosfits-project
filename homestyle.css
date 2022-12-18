@@ -1,0 +1,98 @@
+*{
+    margin: 1;
+}
+
+body{
+    font-family: 'Cairo', sans-serif;
+}
+
+.page-list-container {
+    padding: 20px;
+}
+
+.page-list {
+    display: flex;
+    align-items: center;
+    height: 300;
+    margin-bottom: 20px;
+}
+
+.page-list-item {
+    margin: auto;
+    position: sticky;
+    
+}
+
+.page-list-item:hover .page-list-item-img {
+    transform: scale(1.1);
+    margin: 0 10;
+    opacity: 0.5;
+}
+.page-list-wrapper{
+    margin-right: 1px;
+    margin-top: 50px;
+}
+
+.page-list-item:hover .page-list-item-title,
+.page-list-item:hover .page-list-item-desc,
+.page-list-item:hover .page-list-item-button {
+    opacity: 1;
+}
+
+
+.page-list-item-img {
+    transition: all 1s ease-in-out;
+    width: 360px;
+    height: 540px;
+    object-fit: cover;
+    border-collapse: separate;
+    border-radius: 20px;
+    margin: 10;
+}
+
+.page-list-item-title {
+
+    padding: 0 7px;
+    font-size: 30px;
+    position: absolute;
+    top: 10%;
+    left: 20px;
+    cursor: pointer;
+    opacity: 0;
+    transition: 1s all ease-in-out;
+    margin-bottom: 50px;
+}
+
+.page-list-item-desc {
+    
+    padding: 0 7px;
+    font-size: 14;
+    position: absolute;
+    top: 20%;
+    left: 20px;
+    opacity: 1;
+    width: 150;
+    cursor: pointer;
+    opacity: 0;
+    transition: 1s all ease-in-out;
+}
+
+.page-list-item-button {
+    padding: 10px;
+    background-color: #0275d8;
+    color: rgb(255, 255, 255);
+    border-radius: 10px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    bottom: 10px;
+    left: 20px;
+    opacity: 0;
+    transition: 1s all ease-in-out;
+    font-weight: 600;
+}   
+.logout{
+    align-items: center;
+    justify-content: flex-end;
+}
