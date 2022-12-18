@@ -7,7 +7,7 @@
 | Naufal Akbar Rahadjo | G6401211119 |
 
 # KOSFITS
-Aplikasi pengatur hidup sehat ala anak kos
+Aplikasi pengatur hidup sehat untuk anak kos
 
 ## Features
 - Menghitung indeks massa tubuh
