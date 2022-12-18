@@ -103,9 +103,6 @@ if ($_SERVER['REQUEST_METHOD'] ==  'POST') {
                     <input type="text" class="form-control" name="jenis_makanan" value="<?php echo $jenis_makanan; ?>">
                 </div>
             </div>
-
-
-
             <?php
             if (!empty($successMessage)) {
                 echo "
@@ -119,11 +116,7 @@ if ($_SERVER['REQUEST_METHOD'] ==  'POST') {
                     </div>
                     ";
             }
-
             ?>
-
-
-
             <div class="row mb-3">
                 <div class="offset-sm-3 col-sm-3 d-grid" href="meal.php"><button type="submit" class="btn btn-primary">Submit</button>
                 </div>
