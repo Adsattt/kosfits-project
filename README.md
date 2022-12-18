@@ -1,2 +1,2 @@
-# kosfits-project
+# KOSFITS-PROJECT
  
